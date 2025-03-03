@@ -6,9 +6,9 @@ class Check_ScrollUp_Button:
     def __init__(self,driver):
         self.driver = driver
 
-    #to check scrollup button
+    #to check scroll_up button
     scroll_up_button_xpath = "//*[name()='path' and contains(@stroke,'currentCol')]"
-    def check_scrollup_button(self):
+    def check_scroll_up_button(self):
         self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         time.sleep(2)
         self.driver.find_element(By.XPATH,self.scroll_up_button_xpath).click()

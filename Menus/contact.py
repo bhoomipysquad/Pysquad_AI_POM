@@ -7,7 +7,7 @@ class Contact_Us:
     def __init__(self,driver):
         self.driver = driver
 
-    #to open contct us page
+    #to open contact us page
     Contact_us_xpath = "//a[contains(@class,'text-white !text-sm')]"
     def click_contact_us(self):
         self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")

@@ -26,10 +26,12 @@ class Book_Call:
 
     #to click on "Book a call" button
     Book_a_call_xpath = "//button[normalize-space()='Book a call']"
+    calendly_xpath = "//div[@class='HvybhIo63ZbBJxHh7Ann RK3ps09FjZwzHTaYDakl']"
+    timezone_xpath = "//div[@class='tEuGaNZxLYHN3rpC1UNA xSnXLssjt6TA8zBk06Iq']"
+    close_button_xpath = "//div[@class='calendly-popup-close']"
+
     def click_book_call(self):
         self.driver.find_element(By.XPATH,self.Book_a_call_xpath).click()
+        time.sleep(8)
+        self.driver.find_element(By.XPATH, self.close_button_xpath).click()
         time.sleep(2)
-
-
-
-
