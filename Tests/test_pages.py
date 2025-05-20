@@ -5,6 +5,17 @@ from Pages.hover_event import Hover_Check
 from Tests.conftest import Base_url
 
 
+def test_conf_test1(open_url):
+    driver = open_url
+    act_url = driver.current_url
+    if act_url == Base_url:
+        assert True
+        driver.close()
+    else:
+        driver.save_screenshot("Base_url_issue.png")
+        assert False
+
+
 def test_blog_page(open_url):
     driver = open_url
     blog = Blog(driver)
@@ -14,18 +25,6 @@ def test_book_a_call(open_url):
     driver = open_url
     book_call = Book_Call(driver)
     book_call.book_call()
-
-
-def test_conf_test1(open_url):
-    driver = open_url
-
-    act_url = driver.current_url
-    if act_url == Base_url:
-        assert True
-        driver.close()
-    else:
-        driver.save_screenshot("Base_url_issue.png")
-        assert False
 
 
 def test_home_page(open_url):
