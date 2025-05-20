@@ -21,6 +21,7 @@ def test_blog_page(open_url):
     blog = Blog(driver)
     blog.blog()
 
+
 def test_book_a_call(open_url):
     driver = open_url
     book_call = Book_Call(driver)
@@ -33,6 +34,7 @@ def test_home_page(open_url):
     home.check_page_scrolling()
     home.check_page_up_button()
     home.check_logo()
+
 
 def test_hover_event(open_url):
     driver = open_url

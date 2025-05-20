@@ -32,7 +32,6 @@ class Hover_Check(BasePage):
 
     def open_social_media_pages(self):
          self.scroll_down_only()
-
          social_media_links = {
                                  "Instagram": {
                                                  "xpath": "//a[contains(@aria-label,'Instagram')]//*[name()='svg']",
