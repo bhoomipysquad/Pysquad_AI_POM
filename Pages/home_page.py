@@ -11,8 +11,8 @@ class Home_page(BasePage):
 
     def check_page_up_button(self):
         self.scroll_down_only()
-        self.click(By.XPATH , "//*[name()='path' and contains(@stroke,'currentCol')]")
+        self.click(*self.page_up_button)
 
     def check_logo(self):
         self.scroll_down_only()
-        self.click(By.XPATH , "//a[@class='navbar-brand']")
+        self.click(*self.nivalabs_logo)

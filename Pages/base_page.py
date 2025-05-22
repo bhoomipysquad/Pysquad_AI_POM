@@ -1,3 +1,4 @@
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
@@ -40,10 +41,26 @@ class BasePage:
         self.driver.execute_script("window.scrollBy(0, -600);")
         time.sleep(2)
 
-    def scroll_until_element_found(self):
+    def scroll_blogs_page(self):
         for i in range(50):  # Scroll down 50 times
             self.driver.execute_script("window.scrollBy(0, 100);")
             time.sleep(0.5)
+
+    def scroll_updown_to_check_responsive(self):
+            max_scrolls = 50
+            scroll_step = 200
+
+            for i in range(max_scrolls):
+                self.driver.execute_script(f"window.scrollBy(0, {scroll_step});")
+                time.sleep(0.5)
+            footer_element = self.driver.find_element(By.XPATH, "//a[contains(@aria-label,'Instagram')]//*[name()='svg']")
+            assert footer_element.is_displayed()
+            if footer_element.is_displayed():
+                    for i in range(i):
+                        self.driver.execute_script(f"window.scrollBy(0, -{scroll_step});")
+                        time.sleep(0.3)
+            else:
+                    raise Exception("Footer element not found after scrolling.")
 
     def switch_window(self):
         original_window = self.driver.window_handles[0]

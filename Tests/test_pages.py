@@ -1,5 +1,6 @@
 from Pages.blog_page import Blog
 from Pages.book_call import Book_Call
+from Pages.check_responsive import Responsiveness
 from Pages.home_page import Home_page
 from Pages.hover_event import Hover_Check
 from Tests.conftest import Base_url
@@ -42,3 +43,9 @@ def test_hover_event(open_url):
     hover.solutions_url()
     hover.hover_over_menu()
     hover.open_social_media_pages()
+
+
+def test_responsiveness(open_url):
+    driver = open_url
+    respo = Responsiveness(driver)
+    respo.test_responsiveness_on_multiple_devices()

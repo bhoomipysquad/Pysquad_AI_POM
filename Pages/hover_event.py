@@ -12,7 +12,7 @@ class Hover_Check(BasePage):
 
     def solutions_url(self):
         self.scroll_by_pixels()
-        self.click(By.XPATH , "//a[normalize-space()='solutions@nivalabs.ai']")
+        self.click(*self.solutions_link)
         time.sleep(2)
         self.switch_to_parent_window()
 
@@ -20,14 +20,14 @@ class Hover_Check(BasePage):
     def hover_over_menu(self):
         self.scroll_for_hover()
         actions = ActionChains(self.driver)
-        elements = [
+        hover_menu = [
                         self.driver.find_element(*self.strategy_design),
                         self.driver.find_element(*self.agile_development),
-                        self.driver.find_element(*self.deployment_support)
+                        self.driver.find_element(*self.deployment_support),
                     ]
-        for element in elements:
+        for element in hover_menu:
             actions.move_to_element(element).perform()
-            time.sleep(1)
+            time.sleep(0.5)
 
 
     def open_social_media_pages(self):
@@ -59,14 +59,11 @@ class Hover_Check(BasePage):
                      if window != original_window:
                          self.driver.switch_to.window(window)
                          break
-
                  time.sleep(2)
 
                  act_url = self.driver.current_url
                  assert act_url.startswith(info["expected_url"]), f"{name} URL mismatch: {act_url}"
-
                  self.driver.close()
-
                  self.driver.switch_to.window(original_window)
                  time.sleep(2)
 
